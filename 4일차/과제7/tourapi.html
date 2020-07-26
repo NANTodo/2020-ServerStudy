@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <select id='service' onchange="changeCity()">
+    <option value='-1' selected>서비스 분류</option>
+    <option value=''>전체</option>
+    <option value='12'>관광지</option>
+    <option value='14'>문화시설</option>
+    <option value='15'>축제공연행사</option>
+    <option value='25'>여행코스</option>
+    <option value='28'>레포츠</option>
+    <option value='32'>숙박</option>
+    <option value='38'>쇼핑</option>
+    <option value='39'>음식점</option>
+  </select>
+
+  <select id="region" onchange="changeCity()">
+    <option value='-1' selected>도시 분류</option>
+    <option value=''>전체</option>
+    <option value='1'>서울</option>
+    <option value='2'>인천</option>
+    <option value='3'>대전</option>
+    <option value='4'>대구</option>
+    <option value='5'>광주</option>
+    <option value='6'>부산</option>
+    <option value='7'>울산</option>
+    <option value='8'>세종시</option>
+    <option value='31'>경기도</option>
+    <option value='32'>강원도</option>
+    <option value='33'>충청북도</option>
+    <option value='34'>충청남도</option>
+    <option value='35'>경상북도</option>
+    <option value='36'>경상남도</option>
+    <option value='37'>전라북도</option>
+    <option value='38'>전라남도</option>
+    <option value='39'>제주도</option>
+  </select>
+
+  <div id="container">
+
+  </div>
+
+</body>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+  function changeCity() {
+    var serviceSelect = document.getElementById("service");
+    var service = serviceSelect.options[serviceSelect.selectedIndex].value;
+
+    var regionSelect = document.getElementById("region");
+    var region = regionSelect.options[regionSelect.selectedIndex].value;
+
+    var url =
+      "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?serviceKey=cwyFeQEPSJIrfRgEHDRFoed1y6Qfqkjo9liyGkJbZ6F0GE6nd0Ajm%2FhFjjpUJF6JGz2%2BUz1kT5xsdcYVbAPTaA%3D%3D&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&cat1=&contentTypeId="
+       +service +"&areaCode=" + region + "&sigunguCode=4&listYN=Y";
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var result = this.responseText;
+        var item = $(result).find("item");
+        $("#container").html('');
+        $.each(item, function(index, data) {
+          $("#container").append("<h3>" + $(data).find("addr1").text() + "</h3>");
+          $("#container").append("<p>" + $(data).find("title").text() + "</p>");
+          $("#container").append("<p>" + $(data).find("tel").text() + "</p>");
+          $("#container").append("<image src='" + $(data).find("firstimage").text() +"' style='width:50%;'>" + "</image>");
+          $("#container").append('<hr />');
+        });
+
+      }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+
+  }
+</script>
+
+</html>

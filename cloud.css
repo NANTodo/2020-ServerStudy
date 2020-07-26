@@ -1,0 +1,411 @@
+.cloud{
+    position: absolute;
+    top:65%;
+    left:10%;
+    display: flex;
+
+}
+
+.cloud2{
+    position: absolute;
+    top:70%;
+    left:15%;
+    display: flex;
+
+}
+
+.cloud3{
+    position: absolute;
+    top:66%;
+    left:20%;
+    display: flex;
+
+}
+
+.cloud4{
+    position: absolute;
+    top:71%;
+    left:25%;
+    display: flex;
+
+}
+
+.cloud5{
+    position: absolute;
+    top:67%;
+    left:30%;
+    display: flex;
+
+}
+
+.cloud6{
+    position: absolute;
+    top:72%;
+    left:35%;
+    display: flex;
+
+}
+
+.cloud7{
+    position: absolute;
+    top:69%;
+    left:40%;
+    display: flex;
+
+}
+
+.cloud8{
+    position: absolute;
+    top:71%;
+    left:45%;
+    display: flex;
+
+}
+
+.cloud9{
+    position: absolute;
+    top:67%;
+    left:50%;
+    display: flex;
+
+}
+
+.cloud10{
+    position: absolute;
+    top:72%;
+    left:55%;
+    display: flex;
+
+}
+
+.cloud11{
+    position: absolute;
+    top:73%;
+    left:60%;
+    display: flex;
+
+}
+
+.cloud12{
+    position: absolute;
+    top:67%;
+    left:65%;
+    display: flex;
+
+}
+
+.cloud13{
+    position: absolute;
+    top:72%;
+    left:70%;
+    display: flex;
+
+}
+
+.cloud14{
+    position: absolute;
+    top:65%;
+    left:75%;
+    display: flex;
+
+}
+
+.cloud15{
+    position: absolute;
+    top:71%;
+    left:80%;
+    display: flex;
+
+}
+
+.cloud16{
+    position: absolute;
+    top:64%;
+    left:85%;
+    display: flex;
+
+}
+
+.cloud17{
+    position: absolute;
+    top:71%;
+    left:90%;
+    display: flex;
+
+}
+
+.cloud18{
+    position: absolute;
+    top:65%;
+    left:95%;
+    display: flex;
+
+}
+
+
+a{
+    color:black;
+}
+
+
+
+
+
+div#aa{
+    position: absolute;
+    /* background: white; */
+    /* background-image: url("gg.PNG"); */
+
+
+
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+
+
+    animation-name: updown;
+    animation-duration: 4s;
+    animation-iteration-count: 100;
+}
+
+div#bb{
+    position: absolute;
+    /* background: white; */
+    /* background-image: url("c1.png"); */
+
+
+
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+
+
+    animation-name: updown;
+    animation-duration: 5s;
+    animation-iteration-count: 100;
+}
+
+div#cc{
+    position: absolute;
+    /* background: white; */
+    /* background-image: url("c1.png"); */
+
+
+
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+
+
+    animation-name: updown;
+    animation-duration: 4s;
+    animation-iteration-count: 100;
+}
+
+div#dd{
+    position: absolute;
+    /* background: white; */
+    /* background-image: url("c1.png"); */
+
+
+
+    width:100px;
+    height: 50px;
+    border-radius: 25px;
+
+
+    animation-name: updown;
+    animation-duration: 5s;
+    animation-iteration-count: 100;
+}
+
+div#ee{
+    position: absolute;
+    /* background: white; */
+    /* background-image: url("c1.png"); */
+
+
+
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+
+
+    animation-name: updown;
+    animation-duration: 4s;
+    animation-iteration-count: 100;
+}
+
+div#ff{
+    position: absolute;
+    /* background: white; */
+    /* background-image: url("c1.png"); */
+
+
+
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+
+
+    animation-name: updown;
+    animation-duration: 5s;
+    animation-iteration-count: 100;
+}
+
+div#gg{
+    position: absolute;
+    /* background: white; */
+    /* background-image: url("c1.png"); */
+
+
+
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+
+
+    animation-name: updown;
+    animation-duration: 4s;
+    animation-iteration-count: 100;
+}
+
+div#hh{
+    position: absolute;
+    /* background: white; */
+    /* background-image: url("gg.PNG"); */
+
+
+
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+
+
+    animation-name: updown;
+    animation-duration: 4s;
+    animation-iteration-count: 100;
+}
+
+div#ii{
+    position: absolute;
+    /* background: white; */
+    /* background-image: url("c1.png"); */
+
+
+
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+
+
+    animation-name: updown;
+    animation-duration: 5s;
+    animation-iteration-count: 100;
+}
+
+div#jj{
+    position: absolute;
+    /* background: white; */
+    /* background-image: url("c1.png"); */
+
+
+
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+
+
+    animation-name: updown;
+    animation-duration: 4s;
+    animation-iteration-count: 100;
+}
+
+div#kk{
+    position: absolute;
+    /* background: white; */
+    /* background-image: url("c1.png"); */
+
+
+
+    width:100px;
+    height: 50px;
+    border-radius: 25px;
+
+
+    animation-name: updown;
+    animation-duration: 5s;
+    animation-iteration-count: 100;
+}
+
+div#ll{
+    position: absolute;
+    /* background: white; */
+    /* background-image: url("c1.png"); */
+
+
+
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+
+
+    animation-name: updown;
+    animation-duration: 4s;
+    animation-iteration-count: 100;
+}
+
+div#mm{
+    position: absolute;
+    /* background: white; */
+    /* background-image: url("c1.png"); */
+
+
+
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+
+
+    animation-name: updown;
+    animation-duration: 5s;
+    animation-iteration-count: 100;
+}
+
+div#nn{
+    position: absolute;
+    /* background: white; */
+    /* background-image: url("c1.png"); */
+
+
+
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+
+
+    animation-name: updown;
+    animation-duration: 4s;
+    animation-iteration-count: 100;
+}
+
+@keyframes myanim{
+    0% {left: 0px; top: 0px;}
+    50% {left: 50px; top: 0px;}
+    100% {left: 0px; top: 0px;}
+}
+
+@keyframes updown{
+    0%, 100%{
+        bottom: 0px;
+        animation-timing-function: ease-out;
+    }
+
+    50%{
+        bottom: 40px;
+        animation-timing-function: ease-in;
+    }
+}
+
+
+/* 테스트 구름 */

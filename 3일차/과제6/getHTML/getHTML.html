@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Get HTML</title>
+  <script src="http://code.jquery.com/jquery-3.1.1.min.js">
+  </script>
+  <script>
+    console.log("hello");
+    $.ajax({
+      type: "get",
+      url: "http://m.sejong.ac.kr/front/cafeteria.do",
+      dataType: "html",
+      success: function(result) {
+        console.log(result);
+        document.body.innerHTML = result;
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <span>hello</span>
+</body>
+
+</html>

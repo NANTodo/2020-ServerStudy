@@ -1,0 +1,83 @@
+DROP DATABASE IF EXISTS  taste;
+DROP USER IF EXISTS  taster;
+create user taster identified WITH mysql_native_password  by 'root';
+create database taste;
+grant all privileges on taste.* to taster with grant option;
+flush privileges;
+commit;
+
+USE taste;
+
+CREATE TABLE tag(
+	tname	varchar(20),
+    tcode	INTEGER PRIMARY KEY
+);
+CREATE TABLE food (
+  foodname    varchar(20) PRIMARY KEY,
+  taste1    INTEGER not null,
+  taste2   INTEGER,
+  taste3    INTEGER,
+  taste4   INTEGER,
+  FOREIGN KEY (taste1) REFERENCES tag(tcode),
+  FOREIGN KEY (taste2) REFERENCES tag(tcode),
+  FOREIGN KEY (taste3) REFERENCES tag(tcode),
+  FOREIGN KEY (taste4) REFERENCES tag(tcode)
+);
+
+INSERT INTO tag VALUES('한식', 001);
+INSERT INTO tag VALUES('일식', 002);
+INSERT INTO tag VALUES('중식', 003);
+INSERT INTO tag VALUES('양식', 004);
+INSERT INTO tag VALUES('그외', 005);
+INSERT INTO tag VALUES('육류', 011);
+INSERT INTO tag VALUES('면류', 012);
+INSERT INTO tag VALUES('밥류', 013);
+INSERT INTO tag VALUES('떡', 014);
+INSERT INTO tag VALUES('빵', 015);
+INSERT INTO tag VALUES('해산물', 016);
+INSERT INTO tag VALUES('채식', 017);
+INSERT INTO tag VALUES('국물', 021);
+INSERT INTO tag VALUES('구이', 022);
+INSERT INTO tag VALUES('튀김', 023);
+INSERT INTO tag VALUES('매운', 031);
+INSERT INTO tag VALUES('향신료', 032);
+INSERT INTO tag VALUES('단맛', 033);
+
+
+INSERT INTO food VALUES ('곱창', 001, 011, 022, null);
+ INSERT INTO food VALUES ('닭발', 001, 011, 031, null);
+ INSERT INTO food VALUES ('파스타', 004, 012, null, null);
+ INSERT INTO food VALUES ('떡볶이', 001, 014, 031, 033);
+ INSERT INTO food VALUES('초밥', 002, 016, 013, null);
+ INSERT INTO food VALUES('마라탕', 003, 021, 031, 016);
+ INSERT INTO food VALUES('파전', 001, 016, null, null);
+ INSERT INTO food VALUES('전골', 001, 021, null, null);
+ INSERT INTO food VALUES('치킨', 001, 011, 023, null);
+ INSERT INTO food VALUES('커리', 005, 032, null, null);
+ INSERT INTO food VALUES('브런치', 004, 015, null, null);
+ INSERT INTO food VALUES('라면', 001, 012, 021, 031);
+ INSERT INTO food VALUES('샐러드', 004, 017, null, null);
+ INSERT INTO food VALUES('도넛', 004, 015, 023, 033);
+ INSERT INTO food VALUES('쌀국수', 005, 012, 021, 032);
+
+
+CREATE TABLE tagmatch (
+  foodname    varchar(20) PRIMARY KEY,
+  hit    INTEGER not null
+);
+
+insert into tagmatch values('곱창',0);
+insert into tagmatch values('닭발',0);
+insert into tagmatch values('파스타',0);
+insert into tagmatch values('떡볶이',0);
+insert into tagmatch values('초밥',0);
+insert into tagmatch values('마라탕',0);
+insert into tagmatch values('파전',0);
+insert into tagmatch values('전골',0);
+insert into tagmatch values('치킨',0);
+insert into tagmatch values('커리',0);
+insert into tagmatch values('브런치',0);
+insert into tagmatch values('라면', 0);
+insert into tagmatch values('샐러드', 0);
+insert into tagmatch values('도넛',0);
+insert into tagmatch values('쌀국수',0);

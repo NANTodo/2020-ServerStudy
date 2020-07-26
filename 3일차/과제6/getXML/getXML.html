@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS3 Selector Basic</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <script>
+    $(document).ready(function() {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var result = this.responseText;
+          var date = $(result).find("lastBuildDate").text();
+          $("#date").html("<h1>" + date + "</h1>");
+          $("#content").html(result);
+        }
+      };
+      xmlhttp.open("GET", "http://www.chosun.com/site/data/rss/rss.xml", true);
+      xmlhttp.send();
+    });
+  </script>
+</head>
+<body>
+  <div id="date">
+  </div>
+  <div id="content">
+  </div>
+</body>
+
+</html>

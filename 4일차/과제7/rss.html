@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #container{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  </style>
+
+</head>
+
+<body>
+  <select id="cityid" onchange="changeCity()">
+    <option selected>
+      도시
+    </option>
+  </select>
+
+
+  <div id="weather_city">
+  </div>
+
+  <div id="container">
+    <div id="date"></div>
+    <div id="weather"></div>
+    <div id="low-temp"></div>
+    <div id="high-temp"></div>
+  </div>
+</body>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+  var selIndex = 0;
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var result = this.responseText;
+      var city = $(result).find("city"); // 도시
+
+      $.each(city, function(index, item) {
+        $("#cityid").append("<option>" + item.textContent + "</option>");
+
+      });
+    }
+  };
+  xmlhttp.open("GET", "http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108");
+  xmlhttp.send();
+
+  function changeCity() {
+
+    var langSelect = document.getElementById("cityid");
+    var selectValue = langSelect.options[langSelect.selectedIndex].value;
+    selIndex = langSelect.selectedIndex-1;
+
+    //도시 선택하면 날짜 가져오기
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var result = this.responseText;
+
+        var pro = $(result).find("province");
+        var city = $(result).find("city");
+        var date = $(result).find("tmEf");
+        var weather = $(result).find("wf");
+        var low_temp = $(result).find("tmn");
+        var high_temp = $(result).find("tmx");
+
+        $.each(pro, function(index, item) {
+          if (index == selIndex) {
+            $("#weather_city").html("<h1>" + item.textContent + "</h1>");
+          }
+        });
+
+
+
+        $.each(city, function(index, item) {
+          if (index == selIndex) {
+            $("#weather_city").append("<h3>" + item.textContent + "</h3>")
+          }
+        });
+
+
+        var startIndex = selIndex * 13;
+        var finishIndex = startIndex + 13;
+        $.each(date, function(startIndex, item) {
+          if (startIndex == finishIndex) {
+            return false;
+          }
+
+          if (startIndex == selIndex * 13) {
+            $("#date").html("<p>" + item.textContent + "</p>");
+          } else {
+            $("#date").append("<hr />");
+            $("#date").append("<p>" + item.textContent + "</p>");
+          }
+        });
+
+        var startIndex2 = (selIndex * 13) +1;
+        var finishIndex2 = startIndex2 + 13;
+        $.each(weather, function(startIndex2, item) {
+          if (startIndex2 == finishIndex2) {
+            return false;
+          }
+          if (startIndex2 == (selIndex * 13) +1) {
+            $("#weather").html("<p>" + item.textContent + "</p>");
+          } else {
+            $("#weather").append("<hr />");
+            $("#weather").append("<p>" + item.textContent + "</p>");
+          }
+        });
+
+        var startIndex3 = selIndex * 13; // 0
+        var finishIndex3 = startIndex3 + 13;
+        $.each(low_temp, function(startIndex3, item) { // 최저 찾기
+          if (startIndex3 == finishIndex3) {
+            return false;
+          }
+          if (startIndex3 == selIndex * 13) {
+            $("#low-temp").html("<p> 최저기온 " + item.textContent + "</p>");
+          } else {
+            $("#low-temp").append("<hr />");
+            $("#low-temp").append("<p> 최저기온 " + item.textContent + "</p>");
+          }
+        });
+
+        var startIndex4 = selIndex * 13; // 0
+        var finishIndex4 = startIndex3 + 13;
+        $.each(high_temp, function(startIndex4, item) { // 최고 찾기
+          if (startIndex4 == finishIndex4) {
+            return false;
+          }
+          if (startIndex4 == selIndex * 13) {
+            $("#high-temp").html("<p> 최고기온 " + item.textContent + "</p>");
+          } else {
+            $("#high-temp").append("<hr />");
+            $("#high-temp").append("<p> 최고기온 " + item.textContent + "</p>");
+          }
+        });
+
+      }
+    };
+    xmlhttp.open("GET", "http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108");
+    xmlhttp.send();
+  }
+</script>
+
+</html>
